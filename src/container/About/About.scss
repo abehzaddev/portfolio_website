@@ -1,0 +1,95 @@
+ .app__about {
+    flex: 1;
+    width: 100%;
+    flex-direction: column;
+ }
+
+ .app__profiles {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.app__profile-item {
+    width: 190px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    margin: 2rem;
+
+    img {
+        width: 100%;
+        height: 170px;
+        border-radius: 15px;
+        object-fit: cover;
+    }
+
+    // @media screen and (min-width: 2000px) {
+    //     width: 270px;
+    //     margin: 2rem 4rem;
+
+    //     img {
+    //         height: 320px;
+    //     }
+    // }
+}
+
+.app__special-profiles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    max-width: 2000px;
+    width: 1100px; // Control max size while allowing responsive shrink
+    margin: auto; // Center the container within its parent
+  }
+  
+  .app__special-profile-item {
+    display: flex;
+    width: calc(50% - 50px); // Directly control width, adjusting for margin
+    justify-content: center; // Center the items within
+    align-items: center;
+    margin: 10px; // Adjust margin for consistent spacing
+    
+    img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  
+    .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; // Center-align to match the container's styling
+      padding: 0 20px; // Adjust padding to ensure content has breathing room
+      min-width: 0; // Allows the content to shrink responsively if needed
+    }
+  }
+
+  @media (max-width: 1100px) {
+    .app__special-profiles {
+      flex-direction: column; // Stack items vertically
+      width: auto; // Adjust width to fit smaller screens
+      align-items: center; // Keep items centered in column layout
+    }
+
+    .app__special-profile-item {
+        width: 100%; // Allows each item to take more space, adjust as needed
+        margin: 20px 0; // Adjust margins for vertical spacing, reduce side margins if any
+      }
+    
+      .app__special-profile-item .content {
+        padding: 0 10px; // Adjust padding to ensure text has space, reduce if necessary
+        // Ensure text aligns properly in the column layout
+        text-align: center; // Optional, based on your design preference
+        width: 100%; // Allow the text to use the full width of its container
+      }
+  }
+
+  
