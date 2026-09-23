@@ -25,6 +25,8 @@ const useSandbox = (stageRef, count, running) => {
     world.bodies = nodes.map((el, i) => {
       const r = base * (1.18 - (i / nodes.length) * 0.3)
       el.style.width = el.style.height = `${r * 2}px`
+      // Too small for a readable label: show the icon alone (names stay in the sr-only list).
+      el.classList.toggle('orb--compact', r < 42 && !el.classList.contains('orb--text'))
       const x = r + Math.random() * (W - 2 * r)
       const y = reduced ? H - r - Math.floor(i / 5) * r * 2 : -r - i * 55
       const b = makeBody(el, r, x, y)
@@ -172,7 +174,7 @@ const Toolbox = ({ skills }) => {
 
       <div className="stage" ref={stageRef} aria-hidden="true" data-cursor="PUSH">
         {skills.map((s, i) => (
-          <div key={s.name} className={`orb ${i === 0 ? 'orb--hot' : ''} ${s.icon ? '' : 'orb--text'}`} data-cursor="DRAG">
+          <div key={s.name} className={`orb ${i === 0 ? 'orb--hot' : ''} ${s.icon ? '' : 'orb--text'}`} data-cursor={s.name.toUpperCase()} title={s.name}>
             {s.icon && <img src={sized(s.icon, 128)} alt="" draggable="false" />}
             <span className="mono">{s.name}</span>
           </div>

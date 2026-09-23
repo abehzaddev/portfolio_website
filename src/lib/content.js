@@ -4,7 +4,7 @@ import { client } from '../client'
 // Drafts are excluded so unpublished edits never show on the site.
 const QUERY = `{
   "abouts": *[_type == "abouts" && !(_id in path("drafts.**"))] | order(order asc){ title, description, "img": imgUrl.asset->url },
-  "works": *[_type == "works" && !(_id in path("drafts.**"))] | order(_createdAt desc){ title, description, projectLink, codeLink, tags, role, start, end, "img": imgUrl.asset->url },
+  "works": *[_type == "works" && !(_id in path("drafts.**"))] | order(coalesce(order, 999) asc, _createdAt desc){ title, description, projectLink, codeLink, tags, role, start, end, "img": imgUrl.asset->url },
   "skills": *[_type == "skills" && !(_id in path("drafts.**"))] | order(order asc){ name, "icon": icon.asset->url },
   "experiences": *[_type == "experiences" && !(_id in path("drafts.**"))] | order(year desc){ year, works[]{ name, company, desc, start, end, highlight } },
   "resume": *[_type == "resumeUpload" && !(_id in path("drafts.**"))][0].resume.asset->url
@@ -26,17 +26,21 @@ export const education = [
   },
 ]
 
-// Headline numbers for the Profile readout (from the résumé).
-export const highlights = [
-  { ctx: 'IBM + Cellanome · Professional', value: 2, unit: 'yrs', tail: 'professional AI',
-    label: 'Professional experience building AI: multi-agent systems at IBM (A2A handoffs, MCP tool orchestration) and computer-vision models at Cellanome.' },
-  { ctx: 'IBM · CI/CD pipeline', value: 24, to: 1, unit: 'h', tail: 'from 24h',
-    label: 'Security-scan runtime after I parallelized IBM’s Aqua Security CI/CD scanning.' },
-  { ctx: 'Cellanome · Computer vision', value: 70, unit: '%', tail: 'faster',
-    label: 'Inference speed-up on microscopy cell segmentation after tuning YOLOv5 size, precision and resolution.' },
-  { ctx: 'Munch · Full stack', value: 30, unit: '+', tail: 'API modules',
-    label: 'Backend modules in Munch’s TypeScript/Convex server — designed and built solo.' },
-]
+// Headline numbers for the Profile readout. Counts come from Sanity so they stay current.
+export const buildHighlights = ({ experiences, works }) => {
+  const roles = experiences.flatMap((e) => e.works || [])
+  const companies = [...new Set(roles.map((w) => w.company))]
+  return [
+    { ctx: 'IBM + Cellanome · Professional', value: 2, unit: 'yrs', tail: 'professional AI',
+      label: 'Professional experience building AI: multi-agent systems at IBM (A2A handoffs, MCP tool orchestration) and computer-vision models at Cellanome.' },
+    { ctx: 'Industry + research', value: roles.length, unit: '', tail: 'engineering roles',
+      label: `Software engineering at ${companies.join(', ').replace(/, ([^,]*)$/, ' and $1')} — full-time, internships and research.` },
+    { ctx: 'Work, school + side projects', value: works.length, unit: '', tail: 'major projects built',
+      label: 'From iOS apps and a Unity game to computer-vision tools and Python utilities — each one on the commit log below.' },
+    { ctx: 'Shipped solo', value: 2, unit: '', tail: 'apps on the App Store',
+      label: 'Munch and IdeaVault — designed, built and released end to end, from backend to App Store review.' },
+  ]
+}
 
 export const now = [
   { k: 'Engineering', v: 'IBM — WatsonX enterprise agent framework',

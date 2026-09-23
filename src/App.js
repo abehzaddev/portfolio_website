@@ -25,7 +25,7 @@ const App = () => {
       <Hud />
       <main>
         <Hero roles={roles} resume={resume} />
-        <About abouts={abouts} />
+        <About abouts={abouts} experiences={experiences} works={works} />
         <Work works={works} />
         <Toolbox skills={skills} />
         <Log experiences={experiences} works={works} />

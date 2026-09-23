@@ -375,10 +375,11 @@ html.has-cursor input, html.has-cursor textarea { cursor: text !important; }
 .stat__num {
   font-weight: 700; font-size: clamp(40px, 4.6vw, 68px); line-height: 0.9; letter-spacing: -0.05em;
   font-variant-numeric: tabular-nums;
+  display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 8px; row-gap: 6px;
 }
 .stat__num small { font-size: 0.45em; color: var(--rec); margin-left: 2px; letter-spacing: 0; }
 .stat__ctx { color: var(--rec); font-size: 10px; margin-bottom: 12px; overflow-wrap: anywhere; }
-.stat__tail { font-size: 0.42em; color: var(--dim); margin-left: 8px; letter-spacing: -0.01em; white-space: nowrap; }
+.stat__tail { font-size: 0.42em; color: var(--dim); letter-spacing: -0.01em; line-height: 1.05; }
 .stat__label { margin-top: 10px; font-size: 13px; line-height: 1.4; color: var(--dim); max-width: 22ch; }
 
 .about__roles { list-style: none; border-top: 1px solid var(--line); }
@@ -529,6 +530,8 @@ html.has-cursor input, html.has-cursor textarea { cursor: text !important; }
 .orb span { font-size: 10px; letter-spacing: 0.04em; font-weight: 600; pointer-events: none; }
 .orb--hot { background: var(--rec); }
 .orb--text span { font-size: 11px; text-align: center; padding: 0 6px; }
+.orb--compact span { display: none; }
+.orb--compact img { width: 54%; height: 54%; }
 .orb.is-held { box-shadow: 0 0 0 2px var(--rec), 0 20px 40px rgba(0, 0, 0, 0.5); }
 
 /* ——— Commit log ——— */

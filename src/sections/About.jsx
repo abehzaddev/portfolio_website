@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { highlights, now } from '../lib/content'
+import { buildHighlights, now } from '../lib/content'
 import { useInView, prefersReducedMotion } from '../lib/hooks'
 
 const STATEMENT = [
@@ -41,7 +41,7 @@ const Counter = ({ from, to, run }) => {
   return <span ref={ref}>{from}</span>
 }
 
-const Readout = () => {
+const Readout = ({ highlights }) => {
   const [ref, inView] = useInView({ threshold: 0.3 })
   return (
     <aside className="readout" ref={ref} data-reveal>
@@ -71,10 +71,12 @@ const Readout = () => {
           <div className="stat" key={h.label}>
             <p className="stat__ctx mono">{h.ctx}</p>
             <p className="stat__num">
-              {h.to !== undefined
-                ? <Counter from={h.value} to={h.to} run={inView} />
-                : <Counter from={0} to={h.value} run={inView} />}
-              <small>{h.unit}</small>
+              <span>
+                {h.to !== undefined
+                  ? <Counter from={h.value} to={h.to} run={inView} />
+                  : <Counter from={0} to={h.value} run={inView} />}
+                <small>{h.unit}</small>
+              </span>
               <em className="stat__tail">{h.tail}</em>
             </p>
             <p className="stat__label">{h.label}</p>
@@ -85,7 +87,7 @@ const Readout = () => {
   )
 }
 
-const About = ({ abouts }) => {
+const About = ({ abouts, experiences, works }) => {
   const [active, setActive] = useState(0)
 
   return (
@@ -102,7 +104,7 @@ const About = ({ abouts }) => {
       </h2>
 
       <div className="about__grid">
-        <Readout />
+        <Readout highlights={buildHighlights({ experiences, works })} />
 
         <ul className="about__roles">
           {abouts.map((a, i) => (

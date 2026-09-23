@@ -34,6 +34,11 @@ export default {
       },
    
       {
+        name: 'order',
+        title: 'Order (1 = shown first)',
+        type: 'number',
+      },
+      {
         name: 'role',
         title: 'Role (shown on the timeline)',
         type: 'string',
