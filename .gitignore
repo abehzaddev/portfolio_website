@@ -3,8 +3,14 @@ node_modules/
 /.pnp
 .pnp.js
 
+# Build outputs
+/build
+/dist
 
 # Local development
+.env
+**/.env
+.netlify
 /.cache
 /.parcel-cache
 /.env.local
@@ -45,3 +51,6 @@ yarn-error.log*
 *.swo
 
 
+
+# Local tooling
+.claude/

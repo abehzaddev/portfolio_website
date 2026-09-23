@@ -1,0 +1,17 @@
+{"_id": "exp-2025-ibm", "_type": "experiences", "year": "2025", "works": [{"_key": "ibm2025swe", "_type": "workExperience", "name": "Software Engineer", "company": "IBM", "desc": "Building IBM's WatsonX-based enterprise AI agent framework that product teams use to develop and deploy production agents. Engineer A2A communication, artifact exchange and MCP-based tool orchestration for multi-agent handoffs; led the Integration Agent that automates multi-step workflows across enterprise connectors; added end-to-end multimodal image support and the framework's first A2A integration tests; built an agentic Tool Studio with multi-stage LLM validation; and cut Aqua Security CI/CD scanning from 24 hours to under 1 hour."}]}
+{"_id": "work-munch", "_type": "works", "title": "Munch", "description": "AI restaurant & nutrition discovery app, live on the App Store with hundreds of users \u2014 founded and built solo. SwiftUI on a TypeScript/Convex backend with 30+ API modules: an AI pipeline that discovers restaurants, parses HTML/PDF menus and estimates per-dish nutrition with Gemini and Perplexity Sonar, plus HealthKit macro tracking, social feeds and reviews, and RevenueCat subscriptions.", "projectLink": "https://apps.apple.com/us/app/munch-eat-out-healthy/id6756238169", "tags": ["Mobile App", "All"], "imgUrl": {"_type": "image", "_sanityAsset": "image@https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/21/99/62/21996221-2a81-cbc0-187c-803f5ca0cea8/munchlogo-0-0-1x_U007ephone-0-1-0-sRGB-85-220.png/512x512bb.jpg"}}
+{"_id": "skill-javascript", "_type": "skills", "name": "JavaScript", "order": 12, "bgColor": "#edf2f8"}
+{"_id": "skill-swift", "_type": "skills", "name": "Swift", "order": 13, "bgColor": "#edf2f8"}
+{"_id": "skill-swiftui", "_type": "skills", "name": "SwiftUI", "order": 14, "bgColor": "#edf2f8"}
+{"_id": "skill-java", "_type": "skills", "name": "Java", "order": 15, "bgColor": "#edf2f8"}
+{"_id": "skill-bash", "_type": "skills", "name": "Bash", "order": 16, "bgColor": "#edf2f8"}
+{"_id": "skill-html", "_type": "skills", "name": "HTML", "order": 17, "bgColor": "#edf2f8"}
+{"_id": "skill-scss", "_type": "skills", "name": "SCSS", "order": 18, "bgColor": "#edf2f8"}
+{"_id": "skill-matlab", "_type": "skills", "name": "MATLAB", "order": 19, "bgColor": "#edf2f8"}
+{"_id": "skill-php", "_type": "skills", "name": "PHP", "order": 20, "bgColor": "#edf2f8"}
+{"_id": "skill-tensorflow", "_type": "skills", "name": "TensorFlow", "order": 21, "bgColor": "#edf2f8"}
+{"_id": "skill-scikit-learn", "_type": "skills", "name": "scikit-learn", "order": 22, "bgColor": "#edf2f8"}
+{"_id": "skill-watsonx", "_type": "skills", "name": "WatsonX", "order": 23, "bgColor": "#edf2f8"}
+{"_id": "skill-mcp", "_type": "skills", "name": "MCP", "order": 24, "bgColor": "#edf2f8"}
+{"_id": "skill-a2a", "_type": "skills", "name": "A2A", "order": 25, "bgColor": "#edf2f8"}
+{"_id": "skill-convex", "_type": "skills", "name": "Convex", "order": 26, "bgColor": "#edf2f8"}
