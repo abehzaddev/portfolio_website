@@ -54,3 +54,5 @@ yarn-error.log*
 
 # Local tooling
 .claude/
+.vercel
+.env*
