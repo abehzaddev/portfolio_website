@@ -3,7 +3,7 @@ import { buildHighlights, now } from '../lib/content'
 import { useInView, prefersReducedMotion } from '../lib/hooks'
 
 const STATEMENT = [
-  'I write software that ', ['sees,'], ' ', ['sorts'], ' and ', ['ships'],
+  'I write algorithms that ', ['see,'], ' ', ['sort'], ' and ', ['ship'],
   ' — from segmentation models peering through microscopes to AI agents at IBM and apps you carry in your pocket.',
 ]
 
